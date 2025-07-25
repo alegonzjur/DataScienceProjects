@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Estimation - PistonCup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Price Estimation</h1>
+        <h2 class="subtitle">Discover the estimated market value of your vehicle</h2>
+
+        <form method="post" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+
+            <input type="text" name="Manufacturer" placeholder="Brand" required>
+            <input type="text" name="Model" placeholder="Model" required>
+            <input type="number" name="Prod_year" placeholder="Year of Manufacture" required>
+            <input type="number" name="Mileage" placeholder="Total Mileage (km)" required>
+            <input type="number" name="Engine_volume" placeholder="Power (hp)" required>
+
+            <select name="Fuel_type" required>
+                <option disabled selected>Select Fuel Type</option>
+                <option>Hybrid</option>
+                <option>Diesel</option>
+                <option>LPG</option>
+                <option>Petrol</option>
+                <option>CNG</option>
+                <option>Plug-in Hybrid</option>
+                <option>Hydrogen</option>
+            </select>
+            <select name="Gear_box_type" required>
+                <option disabled selected>Select Gearbox Type</option>
+                <option>Automatic</option>
+                <option>Tiptronic</option>
+                <option>Manual</option>
+                <option>Variator</option>
+            </select>
+            <div class="form-group">
+                <label for="category">Car Category:</label>
+                <select name="Category" required>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Jeep">Jeep</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Microbus">Microbus</option>
+                    <option value="Goods wagon">Goods wagon</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Universal">Universal</option>
+                    <option value="Pickup">Pickup</option>
+                    <option value="Cabriolet">Cabriolet</option>
+                    <option value="Limousine">Limousine</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="leather">Leather Interior:</label>
+                <select name="Leather_interior" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="feature-card">Estimate Price</button>
+        </form>
+
+        {% if prediction %}
+            <div style="margin-top: 40px;">
+                <h2 class="subtitle">Estimated Price: <strong>€{{ prediction }}</strong></h2>
+                <p><strong>{{ data.Manufacturer }} {{ data.Model }}</strong>, Year: {{ data.Prod_year }}, Mileage: {{ data.Mileage }} km</p>
+            </div>
+        {% endif %}
+
+        <div style="margin-top: 30px;">
+            <a href="/" class="feature-card">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

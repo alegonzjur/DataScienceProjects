@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Recommender - PistonCup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Car Recommender</h1>
+    <h2 class="subtitle">Find the best car that fits your budget and preferences</h2>
+
+    <form method="post" style="max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+        <input type="number" name="budget" placeholder="Max Budget (€)" required>
+        <input type="number" name="max_age" placeholder="Max Age of Car (years)" required>
+
+        <select name="fuel" required>
+            <option disabled selected>Select Fuel Type</option>
+            <option>Hybrid</option>
+            <option>Diesel</option>
+            <option>LPG</option>
+            <option>Petrol</option>
+            <option>CNG</option>
+            <option>Plug-in Hybrid</option>
+            <option>Hydrogen</option>
+        </select>
+        <select name="gearbox" required>
+            <option disabled selected>Select Gearbox Type</option>
+            <option>Automatic</option>
+            <option>Tiptronic</option>
+            <option>Manual</option>
+            <option>Variator</option>
+        </select>
+
+        <button type="submit" class="feature-card">Find Recommendation</button>
+    </form>
+
+    {% if recommendation %}
+        <div style="margin-top: 40px;">
+            <h2 class="subtitle">Recommended Car</h2>
+            <p><strong>{{ recommendation.Manufacturer }} {{ recommendation.Model }}</strong></p>
+            <p>Year: {{ recommendation.Prod_year }}, {{ recommendation.Mileage }} km, {{ recommendation.Fuel_type }}, {{ recommendation.Gear_box_type }}</p>
+            <p><strong>Price: €{{ recommendation.Price }}</strong></p>
+        </div>
+    {% elif recommendation is not none %}
+        <div style="margin-top: 40px;">
+            <p><strong>No matching cars found with the given criteria.</strong></p>
+        </div>
+    {% endif %}
+
+    <div style="margin-top: 30px;">
+        <a href="/" class="feature-card">← Back to Home</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimación de Precio de Coche - PistonCup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Price Car Estimator</h1>
+        <h2 class="subtitle">Discover the estimated market value of your vehicle.</h2>
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        <form method="post" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+
+            <label for="make">Brand:</label>
+            <input type="text" id="make" name="make" placeholder="Ej: BMW" required>
+
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" placeholder="Ej: Serie 3" required>
+
+            <label for="year">Year of manufacture:</label>
+            <input type="number" id="year" name="year" placeholder="Ej: 2020" min="1900" max="2025" required>
+
+            <label for="engine">Engine Size (Liter):</label>
+            <input type="number" id="engine" name="engine" placeholder="Ej: 2.0" step="0.1" required>
+
+            <label for="cylinders">Cylinders (optional):</label>
+            <input type="number" id="cylinders" name="cylinders" placeholder="Ej: 4" min="3" max="12">
+
+            <label for="fuel">Fuel type:</label>
+            <input type="text" id="fuel" name="fuel" placeholder="Ej: Gasolina, Diésel, Híbrido, Eléctrico" required>
+                
+            </select>
+
+            <label for="mileage">Mileage (km):</label>
+            <input type="number" id="mileage" name="mileage" placeholder="Ej: 50000" required>
+
+            <label for="transmission">Transmision:</label>
+            <input type="text" id="transmission" name="transmission" placeholder="Ej: Automatic" required>
+
+            <label for="trim">Trim (optional):</label>
+            <input type="text" id="trim" name="trim" placeholder="Ej: M Sport, Avantgarde">
+
+            <label for="body">Body Type:</label>
+            <input type="text" id="body" name="body" placeholder="Ej: Sedan, SUV, Hatchback" required>
+
+            <label for="doors">Number of doors:</label>
+            <input type="number" id="doors" name="doors" placeholder="Ej: 5" min="2" max="7" required>
+
+            <label for="exterior_color">Exterior Color:</label>
+            <input type="text" id="exterior_color" name="exterior_color" placeholder="Ej: Negro, Blanco, Azul" required>
+
+            <label for="interior_color">Interior Color:</label>
+            <input type="text" id="interior_color" name="interior_color" placeholder="Ej: Gris, Beige, Negro" required>
+
+            <label for="drivetrain">Traction type:</label>
+            <select id="drivetrain" name="drivetrain" required>
+                <option disabled selected value="">Select traction type</option>
+                <option value="Front-wheel Drive">Front-wheel Drive</option>
+                <option value="Rear-wheel Drive">Rear-wheel Drive</option>
+                <option value="All-wheel Drive">All-wheel Drive</option>
+                <option value="Four-wheel Drive">Four-wheel Drive</option>
+                
+            </select>
+
+            <button type="submit" class="feature-card">Estimate price</button>
+        </form>
+
+        {% if predicted_price %}
+            <div class="result">
+                <h2>Estimate price:</h2>
+                <p class="price">{{ "%.2f"|format(predicted_price) }} €</p>
+            </div>
+        {% endif %}
+
+        <div style="margin-top: 30px;">
+            <a href="/" class="feature-card">← Back</a>
+        </div>
+    </div>
+</body>
+</html>
