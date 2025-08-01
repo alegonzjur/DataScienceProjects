@@ -1,0 +1,58 @@
+TELCO CUSTOMER CHURN - PROCESSED DATASET
+--------------------------------------------------
+
+Preprocess date: 2025-08-01 12:33:01
+Dataset shape: (7021, 31)
+Target column: Churn
+
+FINAL DATASET COLUMNS:
+------------------------------
+ 1. MonthlyCharges_per_Tenure
+ 2. Contract_Risk_Score
+ 3. Contract_Month-to-month
+ 4. Combined_Risk_Score
+ 5. Contract_Risk_High_Risk
+ 6. Revenue_per_Service
+ 7. TenureBin_encoded
+ 8. tenure
+ 9. Charges_vs_Tenure_Avg
+10. Internet_No_Support
+11. Contract_Risk_Low_Risk
+12. OnlineSecurity_No
+13. Internet_No_Security
+14. TechSupport_No
+15. Tenure_Category_encoded
+16. Established_Customer
+17. LongContract_AutoPay
+18. Contract_Two year
+19. Tenure_Segment_Very_Low_Risk
+20. EstimatedCLV
+21. Expected_TotalCharges
+22. TenureSegment_0-12m
+23. Tenure_Risk_Score_0
+24. MonthlyCharges
+25. InternetService_Fiber optic
+26. TenureSegment_48+
+27. Tenure_Segment_High_Risk
+28. TotalCharges
+29. PaymentMethod_Electronic check
+30. OnlineSecurity_No internet service
+31. Churn
+
+VARIABLE DISTRIBUTION:
+-----------------------------------
+Churn 0: 5164 (73.6%)
+Churn 1: 1857 (26.4%)
+
+TOP 10 FEATURES MOST IMPORTANT FEATURES:
+--------------------------------
+MonthlyCharges_per_Tenure: 0.1315
+Contract_Risk_Score: 0.0978
+Contract_Month-to-month: 0.0947
+Combined_Risk_Score: 0.0906
+Contract_Risk_High_Risk: 0.0895
+Revenue_per_Service: 0.0792
+TenureBin_encoded: 0.0767
+tenure: 0.0752
+Charges_vs_Tenure_Avg: 0.0689
+Internet_No_Support: 0.0676
