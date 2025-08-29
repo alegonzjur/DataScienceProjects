@@ -1,4 +1,4 @@
-# PistonCup
+# Car Recommender
 
 Recommendation app to know every transaction available about your cars.
 
