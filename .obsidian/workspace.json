@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DNAClassification/README.md",
+                "file": "FakeNewsDetection/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -170,5 +170,7 @@
     }
   },
   "active": "d0905a25ed12c80a",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "DNAClassification/README.md"
+  ]
 }
